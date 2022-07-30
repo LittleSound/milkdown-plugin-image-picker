@@ -1,0 +1,119 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/Users/rizumu/Library/pnpm/store/v3",
+    "virtualStoreDir": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tsc/2.0.4",
+    "wanted": {
+      "dependentId": ".",
+      "name": "tsc",
+      "rawSpec": "latest"
+    }
+  },
+  "5 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tsc/2.0.4",
+    "requester": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "status": "resolved"
+  },
+  "6 debug pnpm:package-manifest": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "updated": {
+      "dependencies": {
+        "tsc": "^2.0.4"
+      }
+    }
+  },
+  "7 debug pnpm:package-manifest": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "updated": {
+      "dependencies": {
+        "tsc": "^2.0.4"
+      }
+    }
+  },
+  "8 debug pnpm:stage": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "stage": "resolution_done"
+  },
+  "9 debug pnpm:stats": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "removed": 0
+  },
+  "10 debug pnpm:stage": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "stage": "importing_started"
+  },
+  "11 debug pnpm:stats": {
+    "added": 1,
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773"
+  },
+  "12 debug pnpm:fetching-progress": {
+    "attempt": 1,
+    "packageId": "registry.npmjs.org/tsc/2.0.4",
+    "size": 1139,
+    "status": "started"
+  },
+  "13 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tsc/2.0.4",
+    "requester": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "status": "fetched"
+  },
+  "14 debug pnpm:package-import-method": {
+    "method": "hardlink"
+  },
+  "15 debug pnpm:progress": {
+    "method": "hardlink",
+    "requester": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "status": "imported",
+    "to": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.pnpm/tsc@2.0.4/node_modules/tsc"
+  },
+  "16 debug pnpm:stage": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773",
+    "stage": "importing_done"
+  },
+  "17 debug pnpm:link": {
+    "target": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.pnpm/tsc@2.0.4/node_modules/tsc",
+    "link": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/tsc"
+  },
+  "18 debug pnpm:root": {
+    "added": {
+      "dependencyType": "prod",
+      "id": "registry.npmjs.org/tsc/2.0.4",
+      "name": "tsc",
+      "realName": "tsc",
+      "version": "2.0.4"
+    },
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773"
+  },
+  "19 debug pnpm:summary": {
+    "prefix": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773"
+  },
+  "20 error pnpm": {
+    "shortMessage": "Command failed with exit code 1: /Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.bin/tsc --init",
+    "command": "/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.bin/tsc --init",
+    "escapedCommand": "\"/Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.bin/tsc\" --init",
+    "exitCode": 1,
+    "failed": true,
+    "timedOut": false,
+    "isCanceled": false,
+    "killed": false,
+    "err": {
+      "name": "pnpm",
+      "message": "Command failed with exit code 1: /Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.bin/tsc --init",
+      "stack": "pnpm: Command failed with exit code 1: /Users/rizumu/Library/pnpm/store/v3/tmp/dlx-11773/node_modules/.bin/tsc --init\n    at makeError (/Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:36969:17)\n    at handlePromise (/Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:37540:33)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async Object.handler [as dlx] (/Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:170927:7)\n    at async /Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:176453:21\n    at async run (/Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:176427:34)\n    at async /Users/rizumu/Library/pnpm/global/5/.pnpm/pnpm@7.1.1/node_modules/pnpm/dist/pnpx.cjs:176499:5"
+    }
+  }
+}

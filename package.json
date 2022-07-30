@@ -1,0 +1,54 @@
+{
+  "name": "@image-picker-plugin/monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Image file picker plugin for Milkdown",
+  "author": "Ayaka Rizumu<https://github.com/LittleSound>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:tsup": "tsup --watch",
+    "dev:example": "vite packages/example",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "build": "run-p build:core",
+    "build:core": "tsup",
+    "build:example": "vite build packages/example",
+    "preview": "vite preview packages/example --port 8080",
+    "format": "eslint . --fix",
+    "lint": "run-p lint:*",
+    "lint:core": "eslint packages/core",
+    "lint:example": "eslint packages/example"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "eslint": "8.16.0",
+    "nano-staged": "0.8.0",
+    "npm-run-all": "4.1.5",
+    "tsup": "6.0.1",
+    "typescript": "^4.7.4",
+    "vite": "2.9.9",
+    "vitest": "0.13.1"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  },
+  "nano-staged": {
+    "*.{js,ts,md,json,yaml}": "eslint . --fix"
+  },
+  "tsup": {
+    "entry": {
+      "index": "packages/core/src/index.ts"
+    },
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "dts": {
+      "resolve": true
+    },
+    "splitting": true,
+    "clean": true
+  }
+}
