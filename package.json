@@ -46,9 +46,6 @@
   "eslintConfig": {
     "extends": "@antfu"
   },
-  "nano-staged": {
-    "*.{js,ts,md,json,yaml}": "eslint . --fix"
-  },
   "tsup": {
     "entry": {
       "index": "packages/core/src/index.ts"
