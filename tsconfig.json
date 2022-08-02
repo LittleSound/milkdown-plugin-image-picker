@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "paths": {
+      "image-picker-plugin": ["./packages/core/src/index.ts"]
+    },
+    "noEmit": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
