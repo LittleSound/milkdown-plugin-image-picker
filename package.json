@@ -9,8 +9,6 @@
     "dev": "run-p dev:*",
     "dev:tsup": "tsup --watch",
     "dev:example": "vite packages/example",
-    "test": "vitest run",
-    "test:watch": "vitest --watch",
     "build": "run-p build:core",
     "build:core": "tsup",
     "build:example": "vite build packages/example",
@@ -22,7 +20,10 @@
     "lint:example": "eslint packages/example",
     "typecheck": "run-p typecheck:*",
     "typecheck:example": "vue-tsc --noEmit --project ./packages/example",
-    "typecheck:core": "tsc --noEmit --project ./packages/core"
+    "typecheck:core": "tsc --noEmit --project ./packages/core",
+    "test": "run-p lint:* && run-p typecheck:*",
+    "test:vitest": "vitest run",
+    "test:watch": "vitest --watch"
   },
   "keywords": [],
   "devDependencies": {
