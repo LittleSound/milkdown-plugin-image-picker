@@ -1,9 +1,10 @@
 {
-  "name": "ts-lib-starter",
-  "type": "module",
+  "name": "image-picker-plugin",
   "version": "0.0.0",
-  "packageManager": "pnpm@7.7.0",
-  "description": "boilerplate for your next TypeScript library",
+  "description": "Image file picker plugin for Milkdown",
+  "author": "Ayaka Rizumu<https://github.com/LittleSound>",
+  "license": "MIT",
+  "type": "module",
   "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
@@ -17,22 +18,8 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsup",
-    "prepublishOnly": "pnpm build",
-    "test": "vitest"
-  },
   "peerDependencies": {
     "@milkdown/core": "*"
-  },
-  "devDependencies": {
-    "@milkdown/core": "^6.3.1",
-    "@types/node": "17.0.38",
-    "dprint": "0.29.1",
-    "nano-staged": "0.8.0",
-    "npm-run-all": "4.1.5",
-    "tsup": "6.0.1",
-    "typescript": "4.7.2"
   },
   "tsup": {
     "entry": [

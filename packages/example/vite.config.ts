@@ -14,7 +14,7 @@ export default defineConfig({
       '~/': `${resolve(__dirname, 'src')}/`,
       'image-picker-plugin': resolve(__dirname, '../core/src/index.ts'),
     },
-    dedupe: ['vue'],
+    dedupe: ['vue', '@milkdown/vue', '@milkdown/core', '@milkdown/theme-nord'],
   },
   plugins: [
     Vue({
