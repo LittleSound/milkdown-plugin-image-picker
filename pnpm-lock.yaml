@@ -7,6 +7,7 @@ importers:
       '@antfu/eslint-config': ^0.25.2
       '@material-design-icons/font': ^0.11.7
       '@milkdown/core': ^6.3.1
+      '@milkdown/design-system': ^6.3.1
       '@milkdown/plugin-listener': ^6.3.1
       '@milkdown/plugin-menu': ^6.3.1
       '@milkdown/plugin-upload': ^6.3.1
@@ -29,6 +30,7 @@ importers:
       '@antfu/eslint-config': 0.25.2_vjep2yp2sits3sqnodefgcbnfi
       '@material-design-icons/font': 0.11.7
       '@milkdown/core': 6.3.1_@milkdown+prose@6.3.1
+      '@milkdown/design-system': 6.3.1_@milkdown+prose@6.3.1
       '@milkdown/plugin-listener': 6.3.1_iyv6rb4zcacav45wngqbn7hhni
       '@milkdown/plugin-menu': 6.3.1_iyv6rb4zcacav45wngqbn7hhni
       '@milkdown/plugin-upload': 6.3.1_iyv6rb4zcacav45wngqbn7hhni
@@ -49,7 +51,10 @@ importers:
       vue-tsc: 0.39.4_typescript@4.7.4
 
   packages/core:
-    specifiers: {}
+    specifiers:
+      '@milkdown/preset-commonmark': ^6.3.1
+    devDependencies:
+      '@milkdown/preset-commonmark': 6.3.1
 
   packages/example:
     specifiers:
@@ -513,6 +518,19 @@ packages:
       tslib: 2.4.0
     dev: true
 
+  /@milkdown/preset-commonmark/6.3.1:
+    resolution: {integrity: sha512-DWs+TGX8h+QU5HWP7nQoEe8p5F55q7DZzumdWSIrvI77cze1o4b7FPINI0Pm7NZHIZcfKyKKwYqUtgD3M2oltQ==}
+    peerDependencies:
+      '@milkdown/core': ^6.0.1
+      '@milkdown/prose': ^6.0.1
+    dependencies:
+      '@milkdown/exception': 6.3.1
+      '@milkdown/utils': 6.3.1
+      remark-inline-links: 6.0.1
+      tslib: 2.4.0
+      unist-util-visit: 4.1.0
+    dev: true
+
   /@milkdown/preset-commonmark/6.3.1_iyv6rb4zcacav45wngqbn7hhni:
     resolution: {integrity: sha512-DWs+TGX8h+QU5HWP7nQoEe8p5F55q7DZzumdWSIrvI77cze1o4b7FPINI0Pm7NZHIZcfKyKKwYqUtgD3M2oltQ==}
     peerDependencies:
@@ -583,6 +601,17 @@ packages:
       unified: 10.1.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@milkdown/utils/6.3.1:
+    resolution: {integrity: sha512-FDYHHfjH2IK6eK9EC0W+rJrImvOLLqh9VqNnlv5Gss22VQHmHILbbypM3sfxqDP9oRL2uzJCsn09aBsfSjQWDA==}
+    peerDependencies:
+      '@milkdown/core': ^6.0.1
+      '@milkdown/prose': ^6.0.1
+    dependencies:
+      '@milkdown/exception': 6.3.1
+      nanoid: 4.0.0
+      tslib: 2.4.0
     dev: true
 
   /@milkdown/utils/6.3.1_iyv6rb4zcacav45wngqbn7hhni:

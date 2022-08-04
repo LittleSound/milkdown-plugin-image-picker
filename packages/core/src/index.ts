@@ -1,13 +1,17 @@
 import type { Emotion, Icon, ThemeImageType, ThemeManager } from '@milkdown/core'
 import { ThemeIcon, ThemeSize, getPalette } from '@milkdown/core'
-import { defaultUploader } from './defaultUploader'
 
-export function createFilePickerButton({ css }: Emotion, manager: ThemeManager, loadImage: (src: string) => void) {
+export * from './plugins'
+
+export const FileInputName = 'file-picker-input'
+
+export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) {
   const span = document.createElement('span')
   const button = document.createElement('button')
   button.classList.add('tooltip-input')
   const icon = getIcon('drive_folder_upload', 'file')
   const input = document.createElement('input')
+  input.classList.add(FileInputName)
   input.type = 'file'
   button.append(icon)
   span.append(input, button)
@@ -43,14 +47,6 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager, 
   })
 
   button.onclick = () => input?.click()
-
-  input.oninput = async (e) => {
-    const files = (e.target as HTMLInputElement)?.files
-    if (!files)
-      return
-    const res = await defaultUploader(files)
-    loadImage(res.src)
-  }
   return span
 }
 
@@ -174,7 +170,7 @@ export const ImagePickerView = (emotion: Emotion, manager: ThemeManager) => {
       }
     }
 
-    const fileButton = createFilePickerButton(emotion, manager, loadImage)
+    const fileButton = createFilePickerButton(emotion, manager)
     container.append(icon, fileButton, $placeholder)
 
     const onUpdate = (node: Node) => {

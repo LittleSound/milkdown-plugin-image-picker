@@ -7,7 +7,7 @@ import { upload } from '@milkdown/plugin-upload'
 import { listener, listenerCtx } from '@milkdown/plugin-listener'
 import { defaultConfig, menu, menuPlugin } from '@milkdown/plugin-menu'
 import { switchTheme } from '@milkdown/utils'
-import ImagePickerView from 'image-picker-plugin'
+import ImagePickerView, { imageSelection } from 'image-picker-plugin'
 import { isDark } from '~/composables'
 
 const props = defineProps<{
@@ -47,7 +47,8 @@ const { editor, getInstance } = useEditor((root, renderVue) =>
           placeholder: '请输入图片地址',
           buttonText: '确认',
         },
-      }).configure(link, {
+      })
+      .replace(image, imageSelection()()).configure(link, {
         input: {
           placeholder: '请输入链接地址',
           buttonText: '确认',

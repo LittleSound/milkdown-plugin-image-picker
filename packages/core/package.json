@@ -19,7 +19,9 @@
     "dist"
   ],
   "peerDependencies": {
-    "@milkdown/core": "*"
+    "@milkdown/core": "*",
+    "@milkdown/prose": "*",
+    "@milkdown/preset-commonmark": "^6.3.1"
   },
   "tsup": {
     "entry": [
