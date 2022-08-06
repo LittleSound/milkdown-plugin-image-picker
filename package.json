@@ -1,6 +1,5 @@
 {
   "name": "@milkdown-plugin-image-picker/monorepo",
-  "version": "1.0.0",
   "private": true,
   "description": "Image file picker plugin for Milkdown",
   "author": "Ayaka Rizumu<https://github.com/LittleSound>",
@@ -11,7 +10,9 @@
     "dev:tsup": "tsup --watch",
     "dev:example": "vite packages/example --host --port 3330",
     "build": "run-p build:core",
-    "build:core": "tsup",
+    "build:core": "run-s build:core:*",
+    "build:core:tsup": "tsup",
+    "build:core:copy": "cp packages/core/package.json dist/ && cp README.md dist/",
     "build:example": "vite build packages/example",
     "prepare": "husky install",
     "preview": "vite preview packages/example --port 8080",
@@ -56,7 +57,7 @@
   },
   "tsup": {
     "entry": {
-      "index": "packages/core/src/index.ts"
+      "index": "./packages/core/src/index.ts"
     },
     "format": [
       "esm",

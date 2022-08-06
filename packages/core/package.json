@@ -1,40 +1,29 @@
 {
   "name": "milkdown-plugin-image-picker",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Image file picker plugin for Milkdown",
   "author": "Ayaka Rizumu<https://github.com/LittleSound>",
+  "homepage": "https://github.com/vueuse/vueuse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LittleSound/milkdown-plugin-image-picker.git",
+    "directory": "packages/core"
+  },
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./dist/index.js",
-      "default": "./dist/index.cjs"
+      "import": "./index.js",
+      "default": "./index.cjs"
     }
   },
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "index.cjs",
+  "types": "index.d.ts",
   "peerDependencies": {
     "@milkdown/core": "*",
     "@milkdown/prose": "*",
-    "@milkdown/preset-commonmark": "^6.3.1"
-  },
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "dts": {
-      "resolve": true
-    },
-    "splitting": true,
-    "clean": true
+    "@milkdown/preset-commonmark": "*"
   }
 }

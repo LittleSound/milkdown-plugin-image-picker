@@ -1,11 +1,13 @@
 # Image Picker for Milkdown
-Add support for select and upload pictures
+
+Add support for select and upload pictures from file picker
 
 <!-- ![Screenshots](components.png) -->
 
 ![Demo](demo.gif)
 
 ## Example Usage
+
 ```ts
 import { Editor } from '@milkdown/core'
 import { nord } from '@milkdown/theme-nord'
@@ -19,6 +21,7 @@ Editor.make()
 ```
 
 ### Setup Uploader
+
 ```ts
 import type { Uploader } from 'milkdown-plugin-image-picker'
 
