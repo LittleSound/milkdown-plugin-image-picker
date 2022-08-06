@@ -1,5 +1,5 @@
 {
-  "name": "@image-picker-plugin/monorepo",
+  "name": "@milkdown-plugin-image-picker/monorepo",
   "version": "1.0.0",
   "private": true,
   "description": "Image file picker plugin for Milkdown",

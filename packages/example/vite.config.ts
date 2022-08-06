@@ -12,7 +12,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${resolve(__dirname, 'src')}/`,
-      'image-picker-plugin': resolve(__dirname, '../core/src/index.ts'),
+      'milkdown-plugin-image-picker': resolve(__dirname, '../core/src/index.ts'),
     },
     dedupe: ['vue', '@milkdown/vue', '@milkdown/core', '@milkdown/theme-nord'],
   },

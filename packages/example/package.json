@@ -1,5 +1,5 @@
 {
-  "name": "@image-picker-plugin/example",
+  "name": "@milkdown-plugin-image-picker/example",
   "private": true,
   "dependencies": {
     "@vueuse/core": "^9.0.0",

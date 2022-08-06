@@ -21,7 +21,7 @@
     ],
     "paths": {
       "~/*": ["src/*"],
-      "image-picker-plugin": ["../core/src/index.ts"]
+      "milkdown-plugin-image-picker": ["../core/src/index.ts"]
     }
   },
   "exclude": ["dist", "node_modules"]

@@ -7,7 +7,7 @@ import { upload } from '@milkdown/plugin-upload'
 import { listener, listenerCtx } from '@milkdown/plugin-listener'
 import { defaultConfig, menu, menuPlugin } from '@milkdown/plugin-menu'
 import { switchTheme } from '@milkdown/utils'
-import ImagePickerView, { imageSelection } from 'image-picker-plugin'
+import ImagePickerView, { imageSelection } from 'milkdown-plugin-image-picker'
 import { isDark } from '~/composables'
 
 const props = defineProps<{
