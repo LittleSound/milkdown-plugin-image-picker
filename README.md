@@ -4,7 +4,7 @@ Add support for select and upload pictures from file picker
 
 <!-- ![Screenshots](components.png) -->
 
-![Demo](demo.gif)
+![Demo](https://github.com/LittleSound/milkdown-plugin-image-picker/raw/main/demo.gif)
 
 ## Example Usage
 
