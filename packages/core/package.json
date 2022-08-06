@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Image file picker plugin for Milkdown",
   "author": "Ayaka Rizumu<https://github.com/LittleSound>",
-  "homepage": "https://github.com/vueuse/vueuse#readme",
+  "homepage": "https://github.com/LittleSound/milkdown-plugin-image-picker#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LittleSound/milkdown-plugin-image-picker.git",
