@@ -52,7 +52,7 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
   return span
 }
 
-export const ImagePickerView = (emotion: Emotion, manager: ThemeManager) => {
+export const imagePickerView = (emotion: Emotion, manager: ThemeManager) => {
   const { css } = emotion
   const palette = getPalette(manager)
 
@@ -223,5 +223,3 @@ export function getIcon(icon: string, label: string): HTMLElement {
 
   return span
 }
-
-export default ImagePickerView

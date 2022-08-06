@@ -33,7 +33,7 @@ const inputHandler = (ctx: Ctx, nodeView: NodeView, uploader: Uploader) => {
   }
 }
 
-export const imageSelection = ({
+export const imagePickerPreset = ({
   uploader = defaultUploader,
 }: ImageOptions = {}): typeof image =>
   image.extend((original, _utils, _options) => {

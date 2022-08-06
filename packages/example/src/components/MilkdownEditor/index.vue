@@ -7,7 +7,7 @@ import { upload } from '@milkdown/plugin-upload'
 import { listener, listenerCtx } from '@milkdown/plugin-listener'
 import { defaultConfig, menu, menuPlugin } from '@milkdown/plugin-menu'
 import { switchTheme } from '@milkdown/utils'
-import ImagePickerView, { imageSelection } from 'milkdown-plugin-image-picker'
+import { imagePickerPreset, imagePickerView } from 'milkdown-plugin-image-picker'
 import { isDark } from '~/composables'
 
 const props = defineProps<{
@@ -26,8 +26,8 @@ const customNordDark = nordDark.override((emotion, manager) => {
         return darkColor[key]
     }
   })
-}).override(ImagePickerView)
-const customNordLight = nordLight.override(ImagePickerView)
+}).override(imagePickerView)
+const customNordLight = nordLight.override(imagePickerView)
 
 const { editor, getInstance } = useEditor((root, renderVue) =>
   Editor.make()
@@ -41,7 +41,7 @@ const { editor, getInstance } = useEditor((root, renderVue) =>
     .use(isDark.value ? customNordDark : customNordLight)
     .use(commonmark
       .configure(heading, { displayHashtag: false })
-      .replace(image, imageSelection()())
+      .replace(image, imagePickerPreset()())
       .configure(image, {
         placeholder: '添加图片',
         input: {
