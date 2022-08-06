@@ -17,5 +17,6 @@
     "unplugin-auto-import": "^0.10.1",
     "unplugin-vue-components": "^0.21.2",
     "vite-plugin-pages": "^0.25.0"
-  }
+  },
+  "version": "0.1.3"
 }
