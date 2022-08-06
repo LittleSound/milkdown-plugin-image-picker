@@ -41,6 +41,7 @@ const { editor, getInstance } = useEditor((root, renderVue) =>
     .use(isDark.value ? customNordDark : customNordLight)
     .use(commonmark
       .configure(heading, { displayHashtag: false })
+      .replace(image, imageSelection()())
       .configure(image, {
         placeholder: '添加图片',
         input: {
@@ -48,7 +49,7 @@ const { editor, getInstance } = useEditor((root, renderVue) =>
           buttonText: '确认',
         },
       })
-      .replace(image, imageSelection()()).configure(link, {
+      .configure(link, {
         input: {
           placeholder: '请输入链接地址',
           buttonText: '确认',

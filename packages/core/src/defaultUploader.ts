@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-export type Uploader = (files: FileList) => Promise<{ alt?: string; src: string }>
+export type Uploader = (files: FileList) => Promise<{ alt?: string; src: string }[]>
 
 const readImageAsBase64 = (file: File): Promise<{ alt: string; src: string }> => {
   return new Promise((resolve) => {
@@ -34,5 +34,5 @@ export const defaultUploader: Uploader = async (files) => {
 
   const data = await Promise.all(imgs.map(img => readImageAsBase64(img)))
 
-  return data[0]
+  return data
 }

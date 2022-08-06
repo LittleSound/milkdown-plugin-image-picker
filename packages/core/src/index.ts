@@ -2,6 +2,7 @@ import type { Emotion, Icon, ThemeImageType, ThemeManager } from '@milkdown/core
 import { ThemeIcon, ThemeSize, getPalette } from '@milkdown/core'
 
 export * from './plugins'
+export * from './defaultUploader'
 
 export const FileInputName = 'file-picker-input'
 
@@ -13,6 +14,7 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
   const input = document.createElement('input')
   input.classList.add(FileInputName)
   input.type = 'file'
+  input.multiple = true
   button.append(icon)
   span.append(input, button)
 

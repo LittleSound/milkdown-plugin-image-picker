@@ -1,11 +1,16 @@
-import { ModifyImage, image } from '@milkdown/preset-commonmark'
+import { InsertImage, ModifyImage, image } from '@milkdown/preset-commonmark'
 import { commandsCtx } from '@milkdown/core'
 import type { Ctx } from '@milkdown/core'
 import type { NodeView } from '@milkdown/prose/view'
+import type { Uploader } from './defaultUploader'
 import { defaultUploader } from './defaultUploader'
 import { FileInputName } from '.'
 
-const inputHandler = (ctx: Ctx, nodeView: NodeView) => {
+export interface ImageOptions {
+  uploader?: Uploader
+}
+
+const inputHandler = (ctx: Ctx, nodeView: NodeView, uploader: Uploader) => {
   const dom = nodeView?.dom as HTMLElement
   if (!('getElementsByClassName' in nodeView?.dom))
     return
@@ -18,15 +23,19 @@ const inputHandler = (ctx: Ctx, nodeView: NodeView) => {
     if (!files || !files.length)
       return
 
-    const res = await defaultUploader(files)
-    if (!res?.src)
-      return
-    ctx.get(commandsCtx).call(ModifyImage, res.src)
+    const res = await uploader(files)
+    const first = res.shift()
+    if (first?.src)
+      ctx.get(commandsCtx).call(ModifyImage, first.src)
+
+    if (res.length)
+      res.forEach(image => ctx.get(commandsCtx).call(InsertImage, image.src))
   }
 }
 
-export const imageSelection = (): typeof image =>
-
+export const imageSelection = ({
+  uploader = defaultUploader,
+}: ImageOptions = {}): typeof image =>
   image.extend((original, _utils, _options) => {
     return {
       ...original,
@@ -34,7 +43,7 @@ export const imageSelection = (): typeof image =>
         // const [node, view, getPos, decorations, innerDecorations] = args
 
         const viewRes = original.view?.(ctx)?.(...args)
-        inputHandler(ctx, viewRes! || {})
+        inputHandler(ctx, viewRes! || {}, uploader)
         return viewRes!
       },
     }
