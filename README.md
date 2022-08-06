@@ -11,7 +11,7 @@ Add support for select and upload pictures from file picker
 ```ts
 import { Editor } from '@milkdown/core'
 import { nord } from '@milkdown/theme-nord'
-import { commonmark, heading, image, link } from '@milkdown/preset-commonmark'
+import { commonmark, image } from '@milkdown/preset-commonmark'
 import { imagePickerPreset, imagePickerView } from 'milkdown-plugin-image-picker'
 
 Editor.make()
