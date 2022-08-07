@@ -1,4 +1,4 @@
-# Image Picker for Milkdown
+# Image Picker for [Milkdown](https://milkdown.dev/)
 
 Add support for select and upload pictures from file picker
 
@@ -6,13 +6,23 @@ Add support for select and upload pictures from file picker
 
 ![Demo](https://github.com/LittleSound/milkdown-plugin-image-picker/raw/main/demo.gif)
 
+## Install
+
+```shell
+npm i milkdown-plugin-image-picker
+```
+
 ## Example Usage
 
 ```ts
 import { Editor } from '@milkdown/core'
 import { nord } from '@milkdown/theme-nord'
 import { commonmark, image } from '@milkdown/preset-commonmark'
-import { imagePickerPreset, imagePickerView } from 'milkdown-plugin-image-picker'
+
+import {
+  imagePickerPreset,
+  imagePickerView
+} from 'milkdown-plugin-image-picker'
 
 Editor.make()
   .use(nord.override(imagePickerView))
