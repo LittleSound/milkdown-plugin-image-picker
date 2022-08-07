@@ -17,11 +17,13 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
   input.multiple = true
   button.append(icon)
   span.append(input, button)
+  span.classList.add('milkdown-image-picker')
 
   manager.onFlush(() => {
     const palette = getPalette(manager)
     const style = css`
       position: relative;
+
       input {
         opacity: 0;
         z-index: -1;
@@ -36,6 +38,9 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
         padding: 4px;
         transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
         cursor: pointer;
+        background-color: transparent;
+        border-radius: 0;
+        color: ${palette('neutral')};
 
         &:hover {
           background-color: ${palette('secondary', 0.12)};
@@ -92,7 +97,8 @@ export const imagePickerView = (emotion: Emotion, manager: ThemeManager) => {
             margin: 0 2px;
         }
         .icon,
-        .placeholder {
+        .placeholder,
+        .milkdown-image-picker {
             display: none;
         }
 
@@ -108,7 +114,8 @@ export const imagePickerView = (emotion: Emotion, manager: ThemeManager) => {
             }
 
             .icon,
-            .placeholder {
+            .placeholder,
+            .milkdown-image-picker {
                 display: inline;
             }
 
