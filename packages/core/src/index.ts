@@ -41,6 +41,9 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
         background-color: transparent;
         border-radius: 0;
         color: ${palette('neutral')};
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           background-color: ${palette('secondary', 0.12)};
