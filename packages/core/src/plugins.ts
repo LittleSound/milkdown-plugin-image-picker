@@ -1,14 +1,33 @@
+import type { ImageOptions as NativeImageOptions } from '@milkdown/preset-commonmark'
 import { InsertImage, ModifyImage, image } from '@milkdown/preset-commonmark'
 import { commandsCtx } from '@milkdown/core'
-import type { Ctx } from '@milkdown/core'
+import type { Ctx, ThemeImageType } from '@milkdown/core'
 import type { NodeView } from '@milkdown/prose/view'
+import type { NodeCreator } from '@milkdown/utils'
 import type { Uploader } from './defaultUploader'
 import { defaultUploader } from './defaultUploader'
 import { FileInputName } from '.'
 
-export interface ImageOptions {
-  uploader?: Uploader
+export type ImageOptions = NativeImageOptions & {
+  /**
+   * Setup image upload function.
+   * @default defaultUploader
+   */
+  uploader: Uploader
+  /**
+   * ### Allows the user to select more than one file.
+   * @default true
+   */
+  multiple: boolean
+  /**
+   * ### Accept is native properties of the file type input box.
+   * A comma-separated list of [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
+   * @default 'image/*'
+   */
+  accept: string
 }
+
+const id = 'image'
 
 const inputHandler = (ctx: Ctx, nodeView: NodeView, uploader: Uploader) => {
   const dom = nodeView?.dom as HTMLElement
@@ -33,18 +52,58 @@ const inputHandler = (ctx: Ctx, nodeView: NodeView, uploader: Uploader) => {
   }
 }
 
-export const imagePickerPreset = ({
-  uploader = defaultUploader,
-}: ImageOptions = {}): typeof image =>
-  image.extend((original, _utils, _options) => {
+export const imagePickerPreset = (): NodeCreator<string, ImageOptions> =>
+  image.extend((original, utils, options) => {
+    const {
+      multiple = true,
+      accept = 'image/*',
+      uploader = defaultUploader,
+    } = options || {}
+
     return {
       ...original,
-      view: ctx => (...args) => {
-        // const [node, view, getPos, decorations, innerDecorations] = args
+      view: ctx => (node) => {
+        let currNode = node
 
-        const viewRes = original.view?.(ctx)?.(...args)
-        inputHandler(ctx, viewRes! || {}, uploader)
-        return viewRes!
+        const placeholder = options?.placeholder ?? 'Add an Image'
+        const isBlock = options?.isBlock ?? false
+        const renderer = utils.themeManager.get<ThemeImageType>('image', {
+          placeholder,
+          isBlock,
+
+          // Expand
+          ...{
+            multiple,
+            accept,
+          } as any,
+        })
+
+        if (!renderer)
+          return {} as NodeView
+
+        const { dom, onUpdate } = renderer
+        onUpdate(currNode)
+
+        inputHandler(ctx, { dom }! || {}, uploader)
+
+        return {
+          dom,
+          update: (updatedNode) => {
+            if (updatedNode.type.name !== id)
+              return false
+
+            currNode = updatedNode
+            onUpdate(currNode)
+
+            return true
+          },
+          selectNode: () => {
+            dom.classList.add('ProseMirror-selectednode')
+          },
+          deselectNode: () => {
+            dom.classList.remove('ProseMirror-selectednode')
+          },
+        }
       },
     }
   })

@@ -14,7 +14,6 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
   const input = document.createElement('input')
   input.classList.add(FileInputName)
   input.type = 'file'
-  input.multiple = true
   button.append(icon)
   span.append(input, button)
   span.classList.add('milkdown-image-picker')
@@ -57,14 +56,23 @@ export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) 
   })
 
   button.onclick = () => input?.click()
-  return span
+  return {
+    fileShell: span,
+    fileInput: input,
+    fileButton: button,
+  }
 }
 
 export const imagePickerView = (emotion: Emotion, manager: ThemeManager) => {
   const { css } = emotion
   const palette = getPalette(manager)
 
-  manager.set<ThemeImageType>('image', ({ placeholder, isBlock, onError, onLoad }) => {
+  manager.set<ThemeImageType>('image', (options) => {
+    const { placeholder, isBlock, onError, onLoad } = options
+
+    // Expand
+    const { multiple, accept } = options as any
+
     const createIcon = (icon: Icon) => manager.get(ThemeIcon, icon)?.dom as HTMLElement
     const container = document.createElement('span')
 
@@ -182,8 +190,11 @@ export const imagePickerView = (emotion: Emotion, manager: ThemeManager) => {
       }
     }
 
-    const fileButton = createFilePickerButton(emotion, manager)
-    container.append(icon, fileButton, $placeholder)
+    const { fileShell, fileInput } = createFilePickerButton(emotion, manager)
+    fileInput.accept = accept
+    fileInput.multiple = multiple
+
+    container.append(icon, fileShell, $placeholder)
 
     const onUpdate = (node: Node) => {
       const { src, alt, title, loading, failed } = (node as any).attrs
