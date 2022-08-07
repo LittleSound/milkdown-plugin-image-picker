@@ -28,6 +28,7 @@
     "test": "run-p lint:* && run-p typecheck:*",
     "test:vitest": "vitest run",
     "test:watch": "vitest --watch",
+    "preversion": "run-p test",
     "release": "bumpp package.json packages/*/package.json --execute 'npm run build'"
   },
   "keywords": [],
