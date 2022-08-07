@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-export type Uploader = (files: FileList) => Promise<{ alt?: string; src: string }[]>
+export type Uploader = (files: FileList) => Promise<{ alt?: string; src: string }[] | undefined>
 
 const readImageAsBase64 = (file: File): Promise<{ alt: string; src: string }> => {
   return new Promise((resolve) => {

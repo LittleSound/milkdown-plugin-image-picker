@@ -43,6 +43,10 @@ const inputHandler = (ctx: Ctx, nodeView: NodeView, uploader: Uploader) => {
       return
 
     const res = await uploader(files)
+    input.value = ''
+    if (!res)
+      return
+
     const first = res.shift()
     if (first?.src)
       ctx.get(commandsCtx).call(ModifyImage, first.src)
