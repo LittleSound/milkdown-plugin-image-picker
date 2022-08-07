@@ -1,6 +1,6 @@
 {
   "name": "@milkdown-plugin-image-picker/monorepo",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "type": "module",
   "private": true,
   "description": "Image file picker plugin for Milkdown",
