@@ -9,6 +9,7 @@ export const FileInputName = 'file-picker-input'
 export function createFilePickerButton({ css }: Emotion, manager: ThemeManager) {
   const span = document.createElement('span')
   const button = document.createElement('button')
+  button.type = 'button'
   button.classList.add('tooltip-input')
   const icon = getIcon('drive_folder_upload', 'file')
   const input = document.createElement('input')
